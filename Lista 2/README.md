@@ -65,122 +65,141 @@ Para verificar se seus sensores estão bem ajustados, faça um programa que lê 
 
 O cálculo da pontuação do dardo é realizado em função da distância do ponto ao centro do alvo, bem como a largura de cada faixa. A distância entre dois pontos (x1,y1) e (x2,y2) é calculada pela equação abaixo. Caso o centro do alvo seja a coordenada (0,0) a equação é simplificada para a raiz da soma dos quadrados das coordenadas do dardo.
 
+<img alt="pencentual" src="images/formula_1.png" />
 
+Para o desenho e calculo da pontuação, considere que cada faixa tenha a largura de 25 pixels. Assim, a faixa amarela é definida por um círculo de raio 25, a vermelha de raio 50, a azul de 75 e a preta de 100.
 
-### Exemplos de entrada e saída
-
-```
-Submetidas? 60
-Completas? 60
-Nota = 4.0
-
-Submetidas? 30
-Completas? 30
-Nota = 2.0
-
-Submetidas? 30
-Completas? 0
-Nota = 1.0
-
-Submetidas? 60
-Completas? 45
-Nota = 3.5
-```
-
-# 4. Tempo
-
-A UFRN entrou em recesso no dia 17 de março. Já fazem quantas semanas de lá pra cá?
-
-Para facilitar essa pergunta rotineira, faça um programa que calcula o tempo decorrido em número de semanas e dias a partir do número de dias total do período. Seu programa deve perguntar ao usuário quantos dias decorreram e depois apresentar esse tempo em número de semanas e dias.
+**Obs**: Caso a função de desenho utilizada seja a dot(), há um ajuste de 5% a ser feito nas dimensões. Por exemplo, para desenhar um círculo de raio 100 é necessário inserir um ponto de tamanho 210 (diâmetro de 200 mais 5% = 210), portanto dot(210).
 
 ### Exemplos de entrada e saída
 
 ```
-Quantos dias se passaram? 16
-Isto equivale a 2 semanas e 2 dias
+x: 30
+y: 50
+40 pontos
 
-Quantos dias se passaram? 45
-Isto equivale a 6 semanas e 3 dias
+x: -70
+y: -40
+10 pontos
 
-Quantos dias se passaram? 89
-Isto equivale a 12 semanas e 5 dias
+x: -20
+y: 30
+70 pontos
 
-Quantos dias se passaram? 104
-Isto equivale a 14 semanas e 6 dias
+x: 10
+y: -10
+100 pontos
 ```
 
-# 5. par ou ímpar
+# 4. Ordem
 
-Escreva um programa que receba um número inteiro a e verifique se a é par ou impar. Caso seja par, seu programa deve escrever "par" e desenhar um círculo preenchido vermelho. Caso seja impar, ele deve escrever "ímpar" e desenhar um círculo preenchido de verde.
+Escreva um programa para colocar em ordem três valores inteiros quaisquer. Seu programa deve ler do usuário três valores e apresentá-los em ordem crescente. Mostre também visualmente os valores em ordem, desenhando linhas correspondendo ao valores dados.
 
-Para isso, será necessário, além das operações de desenho vistas nas atividades anteriores, a operação circle(r), onde r é o tamanho do raio do círculo a ser desenhado.
+**Obs**: Seu programa não deve utilizar repetições ou qualquer algoritmo de ordenação já existente em bibliotecas do Python.
 
 ### Exemplos de entrada e saída
 
 ```
-Qual o número? 5
-ímpar
+Valor 1: 45
+Valor 2: 12
+Valor 3: 91
+Em ordem: 12 45 91
 
-Qual o número? 36
-par
+Valor 1: 0
+Valor 2: -10
+Valor 3: 13
+Em ordem: -10 0 13
 
-Qual o número? 0
-par
-
-Qual o número? 21
-ímpar
+Valor 1: 15
+Valor 2: 14
+Valor 3: 13
+Em ordem: 13 14 15
 ```
 
-# 6. Ponto
+# 5. Triângulo retângulo
 
-A figura H abaixo é definida pelo conjunto de pontos (x,y) que atendem os seguintes critérios: x >= 0, y >= 0 e x^2 + y^2 <= 1.
+A editora de livros interativos pediu novamente sua ajuda. Desta vez, ela quer que seus estudantes visualizem o triângulo retângulo cujas dimensões dos lados sejam informadas pelo usuário. Seu programa deve, portanto, ler do usuário as dimensões dos lados do triângulo, informar se elas formam ou não um triângulo retângulo e, se formam, desenhá-lo.
 
-<img alt="pencentual" src="images/regiao-H.png" />
+Para saber se as dimensões formam um triângulo retângulo, elas precisam atender a equação do Teorema de Pitágoras apresentada abaixo. Ou seja, o quadrado da hipotenusa (lado oposto ao ângulo reto, de 90º) é a soma do quadrado dos catetos (lados adjacentes ao ângulo reto).
 
-Escreva um programa para verificar se um dado ponto p, definido através de suas coordenadas (x,y), pertence ou não à figura H. Seu programa deve ler do usuário os valores das coordenadas x e y e apresentar a mensagem "pertence" caso p pertença à figura ou "não pertence" caso contrário.
+<img alt="pencentual" src="images/formula_2.png" />
 
-Para confirmar visualmente que o ponto pertence ou não à região, desenhe a figura (em uma escala bem maior que 1 para que sua região interna seja visível) e o ponto fornecido de uma cor diferente da figura.
+Na entrada de dados, o usuário não precisa saber qual lado é a hipotenusa e quais são os catetos. Logo, o programa deve identificar qual o maior lado fornecido pelo usuário. Este será a hipotenusa e os demais os catetos. Para construir a figura será também necessário calcular os ângulos internos do triângulo e depois seus ângulos externos, pois estes serão o grau de rotação da caneta de desenho. A figura abaixo apresenta os elementos citados.
 
-Para isso, além das operações de desenho anteriores, será necessário girar a direção da caneta para esquerda (ou direita) através da operação left(a) (ou right(a)), onde a é o ângulo a ser girado. Além disso, faz-se neccessário usar um parâmetro adicional à operação circle() para que ele desenhe apenas uma parte do círculo, ou seja faça um arco. A operação recebe, então, dois parâmetros, no formato circle(r, a), onde r é o raio e a é o grau do arco a ser desenhado. Por fim, depois de desenhar o ponto fornecido pelo usuário, para vê-lo melhor, você esconder a "turtle" usando a operação hideturtle().
+<img alt="pencentual" src="images/prob_triangulo.png" />
+
+O cálculo do ângulo interno pode ser realizado pela lei dos senos, que diz que sen(α)=cα/h, onde cα é o cateto oposto a α e h é a hipotenusa. Assim, temos que o ângulo interno α pode ser calculado através da expressão alpha=arcsen(cα/h). Para calcular o ângulo externo, como o interno e externo são suplementares (a soma dos dois é 180º), basta subtrai-lo de 180.
+
+Você precisará, portanto, da função asin() da biblioteca math, que calcula o arcoseno de um ângulo. Essa função retorna o valor em radianos e, por isso, antes de realizar as rotações da caneta, que recebe o ângulo em graus, será necessário transformar o valor de radiano em graus. Isso é feito pela função degrees(), também da biblioteca math.
 
 ### Exemplos de entrada e saída
 
 ```
-x:  1
-y:  1
-não pertence
+lado 1: 4
+lado 2: 5
+lado 3: 3
+Forma um triângulo retângulo
 
-x:  0.2
-y:  0.2
-pertence
+lado 1: 5
+lado 2: 6
+lado 3: 2
+Não forma um triângulo retângulo
 
-x:  -0.1
-y:  0.3
-não pertence
+lado 1: 5
+lado 2: 12
+lado 3: 13
+Forma um triângulo retângulo
 
-x:  1
-y:  0
-pertence
+lado 1: 5
+lado 2: 9
+lado 3: 8
+Não forma um triângulo retângulo
 ```
 
-# 7. Tempo melhorado
+# 6. Caixa envoltória
 
-Você percebeu que o programa que você fez na atividade Tempo não apresentava o tempo de forma adequada. Por exemplo, ninguém diz "Isto equivale 6 semanas e 0 dias". Se não há dias adicionais, dizemos apenas "Isto equivale a 6 semanas". Da mesma forma, não dizemos "1 dias". Quando há apenas uma unidade, usamos o singular e dizemos "1 semana" ou "1 dia".
+Muitos jogos digitais realizam testes de colisão entre elementos do jogos, tais como personagens, balas, muros, alvos, entre outros. Para simplicar os cálculos nos testes de colisão, vários jogos consideram a existência de uma caixa que envolve o personagem (daí o nome "caixa envoltória", do inglês bounding box). Se houver interseção entre as caixas de dois elementos do jogo, significa que um colidiu com o outro. A figura abaixo ilustra o caso de dois personagens, com suas respectivas caixas envoltórias, e a área de colisão em laranja. Mesmo que as imagens deles não se sobreponham, as caixas sim e, por isso, o jogo considera como uma colisão.
 
-Faça uma nova versão do seu programa de forma que o mesmo calcule o tempo e, em função do número de semanas e dias, apresente o tempo decorrido de forma adequada.
+<img alt="pencentual" src="images/prob_caixa.png" />
+
+Já prevendo o desenvolvimento de um jogo, desenvolva um teste de colisão simples, envolvendo apenas uma caixa envoltória e um ponto. Escreva um programa que lê inicialmente do usuário quatro valores. Os dois primeiros são as coordenadas do canto superior esquerdo da caixa (X_esquerda,Y_topo) e os dois seguintes são a largura e altura da caixa, respectivamente. Em seguida, leia do usuário mais dois valores correspondentes às coordenadas do ponto (x,y) que você quer testar.
+
+Se o ponto (x,y) estiver dentro da caixa, informe que o ponto colide com a caixa, caso contrário que não colide. Para verificar visualmente se seu teste está correto, desenhe uma caixa e o ponto fornecidos pelo usuário, como exemplificado na figura abaixo.
+
+<img alt="pencentual" src="images/prob_caixa_2.png" />
 
 ### Exemplos de entrada e saída
 
 ```
-Quantos dias se passaram? 7
-Isto equivale a 1 semana
+esquerda: 0
+topo: 50
+largura: 150
+altura: 50
+x: 100
+y: 40
+=> Colide!
 
-Quantos dias se passaram? 15
-Isto equivale a 2 semanas e 1 dia
+esquerda: 40
+topo: 40
+largura: 50
+altura: 50
+x: 10
+y: 10
+=> Não colide!
 
-Quantos dias se passaram? 4
-Isto equivale a 4 dias
+esquerda: -20
+topo: 10
+largura: 80
+altura: 20
+x: 0
+y: 0
+=> Colide!
 
-Quantos dias se passaram? 104
-Isto equivale a 14 semanas e 6 dias
+esquerda: -50
+topo: -30
+largura: 10
+altura: 10
+x: -10
+y: 20
+=> Não colide!
 ```

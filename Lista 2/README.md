@@ -10,47 +10,62 @@ Como protótipo, você deve ler do usuário três valores numéricos. O primeiro
 
 Para calcular o tempo, utilize a equação abaixo, onde Vr é a velocidade relativa (como os veículos estão em sentidos contrários, Vr é a soma de suas velocidades), Dr é a distância relativa (distância entre os veículos) e Δt é o tempo decorrido.
 
-# 2. Média
-
-Escreva um programa que lê do usuário três números inteiros e, em seguida, apresenta a média dos números lidos.
-
-A cada vez que o usuário entrar com um valor, o programa deve desenhar uma linha horizontal de espessura 10 e comprimento dado pelo valor dado pelo usuário. As linhas devem estar uma acima da outra. Acima delas, desenhe uma linha vermelha com o comprimento da média calculada.
-
-Para isso, além das operações utilizadas na atividade Comprimento, você poderá também usar penup(), pendown() e goto(x, y) para "levantar a caneta", "baixar a caneta" e ir para uma dada coordenada, respectivamente.
+Vr=Dr/Δt
 
 ### Exemplos de entrada e saída
 
 ```
-valor 1: 3
-valor 2: 5
-valor 3: 1
-média = 3.0
+Distância (km): 50
+Velocidade 1 (km/h): 60
+Velocidade 2 (km/h): 40
+Tempo de encontro (h) = 0.5
 
-valor 1:  3
-valor 2:  8
-valor 3:  1
-média = 4.0
+Distância (km): 150
+Velocidade 1 (km/h): 80
+Velocidade 2 (km/h): 70
+Tempo de encontro (h) = 1.0
 
-valor 1:  16
-valor 2:  25
-valor 3:  -14
-média = 9.0
-
-valor 1:  25
-valor 2:  0
-valor 3:  1
-média = 8.666666666666666
+Distância (km): 220
+Velocidade 1 (km/h): 40
+Velocidade 2 (km/h): 60
+Tempo de encontro (h) = 2.2
 ```
 
-# 3. Nota
+# 2. Pizza
 
-As atividades que são passadas para o curso de Pensamento Computacional valem até 4,0 pontos na média final da disciplina. As atividades completas (corretas) entregues no prazo valem 100% de seus pontos e as incompletas ou fora do prazo valem 50%. Faça um programa para te ajudar a saber qual será sua nota correspodente às atividades em função do número de atividades completas e incompletas que você submeteu. Considere um número total de 60 atividades ao longo do curso.
+Seus professores de Pensamento Computacional gostariam de discutir os resultados das atividades apresentando proporcionalmente quantos alunos fizeram uma determinada atividade e quantos não fizeram. Para facilitar essa discussão, eles pediram para você desenvolver um programa para desenhar um gráfico de pizza, como o ilustrado abaixo, com a quantidade de alunos que fizeram e que não fizeram uma atividade.
 
-O programa deve perguntar ao usuário quantas atividades foram submetidas ao todo e, destas, quantas foram completas (corretas dentro do prazo). O programa deverá, então, apresentar a nota correspodente.
+<img alt="pencentual" src="images/prob_pizza.png" />
 
-O programa deve também desenhar duas linhas horizontais, uma sobre a outra, para mostrar o percentual de atividades completas sobre a total de submetidas, como ilustrado na figura abaixo.
+Escreva um programa que lê dois valores inteiros do usuário e apresenta a proporção desses valores em %. Seu programa deve também desenhar um gráfico de pizza com as proporções.
 
-<img alt="pencentual" src="images/percentual.png" />
+### Exemplos de entrada e saída
+
+```
+Fizeram a atividade: 21
+Não fizeram: 9
+70.0% fez a atividade e 30.0% não fez.
+
+Fizeram a atividade: 27
+Não fizeram: 3
+90.0% fez a atividade e 10.0% não fez.
+
+Fizeram a atividade: 26
+Não fizeram: 14
+65.0% fez a atividade e 35.0% não fez.
+```
+
+# 3. Alvo
+
+Seus amigos gostam muito de jogar dardo. Sempre que se encontram, passam horas jogando. O problema é que, vez por outra, a contagem se perde e ficam discutindo quem tem mais pontos. Você tem então a ideia de automatizar o processo capturando através de sensores a posição do dardo no alvo e calculando quantos pontos um dardo fez.
+
+Para verificar se seus sensores estão bem ajustados, faça um programa que lê dos sensores (mas aqui será do usuário) os valores das coordenadas x e y de um dardo sobre o painel de alvo. Para conferir com a realidade, seu programa deve desenhar o painel de alvo e o ponto em que o dardo se encontra, como ilustrado na figura abaixo. Seu programa deve também apresentar quantos pontos o dardo fez, considerando 10 pontos para a faixa preta, 40 pontos para a azul, 70 para a vermelha e 100 para a amarela.
+
+<img alt="pencentual" src="images/prob_alvo.png" />
+
+O cálculo da pontuação do dardo é realizado em função da distância do ponto ao centro do alvo, bem como a largura de cada faixa. A distância entre dois pontos (x1,y1) e (x2,y2) é calculada pela equação abaixo. Caso o centro do alvo seja a coordenada (0,0) a equação é simplificada para a raiz da soma dos quadrados das coordenadas do dardo.
+
+
 
 ### Exemplos de entrada e saída
 

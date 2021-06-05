@@ -6,6 +6,10 @@ Uma editora de livros digitais deseja incluir no seu catálogo de objetos de apr
 
 Como protótipo, você deve ler do usuário três valores numéricos. O primeiro é a distância entre os veículos e os dois seguintes são a velocidade média de cada um. Seu programa deve apresentar o tempo que levará para os veículos se encontrarem e desenhar uma figura para ilustrar de forma proporcional os trajetos e o ponto de encontro, como exemplificado na figura abaixo.
 
+<img alt="pencentual" src="images/prob_fisica.png" />
+
+Para calcular o tempo, utilize a equação abaixo, onde Vr é a velocidade relativa (como os veículos estão em sentidos contrários, Vr é a soma de suas velocidades), Dr é a distância relativa (distância entre os veículos) e Δt é o tempo decorrido.
+
 # 2. Média
 
 Escreva um programa que lê do usuário três números inteiros e, em seguida, apresenta a média dos números lidos.
